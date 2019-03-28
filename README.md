@@ -13,8 +13,9 @@ git clone https://github.com/UMMS-Biocore/dolphinnext-studio.git
 
 2. Build the image
 
-cd dolphinnext-docker
-docker build -t dolphinnext-studio .
+  cd dolphinnext-studio 
+
+  docker build -t dolphinnext-studio .
 
 
 Start the container
