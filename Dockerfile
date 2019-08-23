@@ -1,4 +1,4 @@
-FROM dolphinnext-docker:latest
+FROM ummsbiocore/dolphinnext-docker:latest
 MAINTAINER Alper Kucukural <alper.kucukural@umassmed.edu>
  
 RUN echo "Alper"
