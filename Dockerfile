@@ -21,13 +21,14 @@ RUN sed -i "s|\"rlimit.fsize\": 1e9|\"rlimit.fsize\": 8e9|" /etc/opencpu/server.
 RUN sed -i "s|\"timelimit.get\": 60|\"timelimit.get\": 900|" /etc/opencpu/server.conf
 RUN sed -i "s|\"timelimit.post\": 90|\"timelimit.post\": 900|" /etc/opencpu/server.conf
 
-RUN genome_url="https://galaxyweb.umassmed.edu/pub/dnext_data/genome_data/mousetest/mm10/" && \
-    genome_dir="$HOME/genome_data" && \
-    mkdir -p ${genome_dir}/mousetest/mm10 && \
-    wget -l inf -nc -nH --cut-dirs=5 -R 'index.html*' -r --no-parent --directory-prefix=${genome_dir}/mousetest/mm10 $genome_url
-RUN singularity_dir="$HOME/.dolphinnext/singularity" && \
-    singularity_url="https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-rna-seq-1.0.img" && \
-    wget --directory-prefix=$singularity_dir $singularity_url 
+RUN tutorial_url="https://galaxyweb.umassmed.edu/pub/dnext_data/tutorial/" && \
+    wget -l inf -nc -nH --cut-dirs=3 -R 'index.html*' -r --no-parent --directory-prefix=/data $tutorial_url
+
+RUN singularity_dir="/data/.dolphinnext/singularity" && \
+    wget --directory-prefix=$singularity_dir https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-initialrun-24.07.2019.simg && \
+    wget  https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-rna-seq-1.0.img -O $singularity_dir/dolphinnext-rnaseq-1.0.img
+RUN echo 'NXF_SINGULARITY_CACHEDIR="/data/.dolphinnext/singularity"' >> /etc/profile
+RUN chmod 777 -R /data
 
 RUN echo "DONE!"
 
