@@ -9,7 +9,7 @@ RUN gpg --keyserver hkp://keyserver.ubuntu.com:80  --recv-key E084DAB9
 RUN gpg -a --export E084DAB9 | apt-key add -
 RUN add-apt-repository 'deb https://ftp.ussg.iu.edu/CRAN/bin/linux/ubuntu xenial/'
 RUN apt-get -y install r-base r-base-dev opencpu-server rstudio-server \
-    libudunits2-dev pandoc libmariadb-client-lgpl-dev texlive texlive-latex-extra squashfs-tools
+    libudunits2-dev pandoc libmariadb-client-lgpl-dev texlive texlive-latex-extra
 
 RUN R -e 'install.packages(c("devtools", "knitr", "RCurl", "plotly", "webshot", "rmarkdown"))'
 RUN R -e 'devtools::install_github("umms-biocore/markdownapp")'
