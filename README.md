@@ -31,7 +31,7 @@ Please choose a directory in your machine to mount and replace `/path/to/mount` 
 * Note: Please don't change the target directory(`/export`) in the docker image. 
 
 ```
-mkdir -p /mnt/sda1/export/
+mkdir -p /path/to/mount
 ```
 
 2. While running the container;
