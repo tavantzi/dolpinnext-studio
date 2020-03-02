@@ -25,8 +25,8 @@ RUN tutorial_url="https://galaxyweb.umassmed.edu/pub/dnext_data/tutorial/" && \
     wget -l inf -nc -nH --cut-dirs=3 -R 'index.html*' -r --no-parent --directory-prefix=/data $tutorial_url
 
 RUN singularity_dir="/data/.dolphinnext/singularity" && \
-    wget --directory-prefix=$singularity_dir https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-initialrun-24.07.2019.simg && \
-    wget  https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-rna-seq-1.0.img -O $singularity_dir/dolphinnext-rnaseq-1.0.img
+    wget --directory-prefix=$singularity_dir https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-initialrun-07.01.2020.simg && \
+    wget  https://galaxyweb.umassmed.edu/pub/dnext_data/singularity/UMMS-Biocore-rna-seq-1.0.simg -O $singularity_dir/dolphinnext-rnaseq-1.0.simg
 RUN echo 'NXF_SINGULARITY_CACHEDIR="/data/.dolphinnext/singularity"' >> /etc/profile
 RUN chmod 777 -R /data
 
